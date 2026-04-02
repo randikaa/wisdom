@@ -12,6 +12,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Wisdom Institution LMS",
   description: "Learning Management System for Wisdom Institution",
+  icons: {
+    icon: "/logo.jpeg",
+  },
 };
 
 export default function RootLayout({
