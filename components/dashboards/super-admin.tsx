@@ -5,19 +5,19 @@ import { Users, Building, AlertCircle, TrendingUp } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
-const incomeData = [
-  { month: "Jan", income: 12000 },
-  { month: "Feb", income: 15000 },
-  { month: "Mar", income: 28000 },
-  { month: "Apr", income: 35000 },
-  { month: "May", income: 22000 },
-  { month: "Jun", income: 18000 },
+const performanceData = [
+  { time: "00:00", cpu: 45 },
+  { time: "04:00", cpu: 30 },
+  { time: "08:00", cpu: 75 },
+  { time: "12:00", cpu: 85 },
+  { time: "16:00", cpu: 60 },
+  { time: "20:00", cpu: 55 },
 ]
 
 const chartConfig = {
-  income: {
-    label: "Student Income",
-    color: "hsl(var(--chart-3))",
+  cpu: {
+    label: "CPU Usage (%)",
+    color: "hsl(var(--chart-1))",
   },
 }
 
@@ -70,23 +70,23 @@ export function SuperAdminDashboard() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
         <Card className="col-span-4">
           <CardHeader>
-            <CardTitle>Financial Overview</CardTitle>
-            <CardDescription>Monthly student income generated.</CardDescription>
+            <CardTitle>System Performance</CardTitle>
+            <CardDescription>Server CPU usage over the last 24 hours.</CardDescription>
           </CardHeader>
           <CardContent className="h-[300px] pt-4">
             <ChartContainer config={chartConfig} className="h-full w-full">
-              <AreaChart data={incomeData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+              <AreaChart data={performanceData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
-                  <linearGradient id="fillIncome" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="var(--color-income)" stopOpacity={0.8} />
-                    <stop offset="95%" stopColor="var(--color-income)" stopOpacity={0.1} />
+                  <linearGradient id="fillCpu" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="var(--color-cpu)" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="var(--color-cpu)" stopOpacity={0.1} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
+                <XAxis dataKey="time" tickLine={false} axisLine={false} tickMargin={8} />
                 <YAxis tickLine={false} axisLine={false} tickMargin={8} />
                 <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-                <Area type="monotone" dataKey="income" stroke="var(--color-income)" fillOpacity={1} fill="url(#fillIncome)" />
+                <Area type="monotone" dataKey="cpu" stroke="var(--color-cpu)" fillOpacity={1} fill="url(#fillCpu)" />
               </AreaChart>
             </ChartContainer>
           </CardContent>
