@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Users, GraduationCap, DollarSign, CalendarCheck } from "lucide-react"
+import { Users, GraduationCap, Banknote, CalendarCheck } from "lucide-react"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
@@ -52,10 +52,10 @@ export function OfficeAdminDashboard() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 text-muted-foreground pb-2">
             <CardTitle className="text-sm font-medium">Revenue Collected</CardTitle>
-            <DollarSign className="h-4 w-4" />
+            <Banknote className="h-4 w-4" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$45,231</div>
+            <div className="text-2xl font-bold">Rs. 45,231</div>
             <p className="text-xs text-muted-foreground">+18% this month</p>
           </CardContent>
         </Card>
